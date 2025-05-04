@@ -19,11 +19,11 @@ PyTor is a Python-based script designed to help you rotate your IP address via t
 
 1. Clone the repository 
 
-          git clone https://github.com/G0ldenRat10/PyTor-IP-Changer.git
-          cd PyTor-IP-Changer
+       git clone https://github.com/G0ldenRat10/PyTor-IP-Changer.git
+       cd PyTor-IP-Changer
 2. Run the script
 
-          sudo python3 pytor.py
+       sudo python3 pytor.py
 
 
  # Requirements
