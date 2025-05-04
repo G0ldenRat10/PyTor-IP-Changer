@@ -31,5 +31,9 @@ PyTor is a Python-based script designed to help you rotate your IP address via t
 The script automatically installs any necessary dependencies (such as curl, tor, and requests) when it runs, so no manual installation is required.
 
 However, make sure that Tor is installed and running on your system. The script will check for the required dependencies and install them if they are missing.
+
+Also it's important to have python3 and pip installed to run this program !
+
+      sudo apt install python3 python3-pip -y
           
 
