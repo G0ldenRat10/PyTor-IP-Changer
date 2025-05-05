@@ -95,9 +95,9 @@ def change_ip():
     try:
         subprocess.run(["systemctl", "reload", "tor"], check=True)
         time.sleep(5)
-        new_ip = get_ip()  # Call get_ip() to get the IP address
+        new_ip = get_ip()  
         print(f"\nNew IP address: {new_ip}")
-        show_ip_location(new_ip)  # Pass the new IP to show_ip_location()
+        show_ip_location(new_ip)  
 
     except subprocess.CalledProcessError as e:
         print(f"Error reloading Tor: {e}")
@@ -125,7 +125,7 @@ def change_ip_loop():
             interval = input("Enter time interval in seconds (type 0 for infinite IP changes): ")
             times = input("Enter number of times to change IP address (type 0 for infinite IP changes): ")
             print("Press CTRL + C to quit program at any time.")
-            # Input validation
+            
             if not interval.isdigit() or not times.isdigit():
                 print("Please enter valid numbers.")
                 continue
