@@ -79,16 +79,48 @@ def start_tor():
         sys.exit(1)
 
 
-def get_ip():
+def get_ip() -> str:
+    services = [
+        "https://checkip.amazonaws.com",
+        "https://api.ipify.org",
+        "https://icanhazip.com",
+        "https://ifconfig.me/ip",
+        # "https://ip.42.pl/raw"
+    ]
+    user_agents = [
+        # Browsers - Desktop
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0",
+        "Opera/9.80 (Windows NT 6.1; WOW64) Presto/2.12.388 Version/12.18",
+        "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; rv:11.0) like Gecko",
+        # Mobile
+        "Mozilla/5.0 (iPhone; CPU iPhone OS 17_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1",
+        "Mozilla/5.0 (Linux; Android 14; Pixel 8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Mobile Safari/537.36",
+        # Bots
+        "Googlebot/2.1 (+http://www.google.com/bot.html)",
+        "Bingbot/2.0 (+http://www.bing.com/bingbot.htm)",
+        "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)",
+        # Tools
+        "curl/8.4.0",
+        "Wget/1.21.4",
+        "Python-urllib/3.12",
+        # Others
+        "PostmanRuntime/7.36.0",
+        "Apache-HttpClient/4.5.14 (Java/17.0.9)"
+    ]
+    
     try:
-        url = "https://checkip.amazonaws.com"
-        headers = {"User-Agent": "Mozilla/5.0"}
-        proxies = {"http": "socks5h://127.0.0.1:9050", "https": "socks5h://127.0.0.1:9050"}
-        response = requests.get(url, headers=headers, proxies=proxies, timeout=10)
-        return response.text.strip()
+        time.sleep(random.uniform(0, 0.5))
+        return requests.get(
+            url=random.choice(services),
+            headers={"User-Agent": random.choice(user_agents)},
+            proxies={"http": "socks5h://127.0.0.1:9050", "https": "socks5h://127.0.0.1:9050"},
+            timeout=10
+        ).text.strip()
     except requests.RequestException as e:
         print(f"Error fetching IP: {e}")
         sys.exit(1)
+
 
 
 def change_ip():
