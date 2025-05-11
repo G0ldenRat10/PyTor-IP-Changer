@@ -1,7 +1,7 @@
 # PyTor IP Changer
 PyTor is a Python-based script designed to help you rotate your IP address via the Tor network, ensuring enhanced anonymity and privacy. The tool uses the Tor service to change your IP address and provides a simple way to verify the IP change and fetch geolocation information based on the new IP.
 
-![My Image](https://github.com/G0ldenRat10/PrivatePictures/blob/main/Screenshot_2025-05-05_01_14_12.jpg?raw=true)
+![My Image](https://github.com/G0ldenRat10/PrivatePictures/blob/main/Screenshot_2025-05-11_13_44_44.png?raw=true)
 
 # Features
 
@@ -26,7 +26,7 @@ PyTor is a Python-based script designed to help you rotate your IP address via t
        sudo python3 pytor.py
 
 
- # Requirements
+# Requirements
 
 The script automatically installs any necessary dependencies (such as curl, tor, and requests) when it runs, so no manual installation is required.
 
@@ -35,6 +35,13 @@ However, make sure that Tor is installed and running on your system. The script 
 Also it's important to have python3 and pip installed to run this program !
 
       sudo apt install python3 python3-pip -y
+
+# New Version 1.2.0 
+- Version upgrade from 1.1.0  ---->  1.2.0
+- Upgraded get_ip() function  ---->  It now has secondary and tertiary services if primary one fails.
+- Upgraded show_ip_location()  ---->  Now it randomly selects one of three geolocation APIs to provide the location information. More resilient to service failures.
+- Better code organization, error handling, user interactivity and feedback.
+
           
 
 # Youtube Tutorial
